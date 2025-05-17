@@ -1,6 +1,6 @@
 //VARIABLES
 
-float Alpha, pos, multiplo1, multiplo2, randomR, randomG, randomB;
+float  multiplo, randomR, randomG, randomB;
 PImage Imag1, Imag2, Imag3, Imag4, Imag5, Imag6, Imag7;
 int movimiento = 1, intervalo, imagActual;
 String Text1, Text2, Text3, Text4, Text5, Text6, Text7;
@@ -31,10 +31,7 @@ void setup() {
   Imag7 =loadImage ("ShikaFamili.jpeg");
   //Otros
 
-  pos=0;
-
-  multiplo1=1.5;
-  multiplo2=2.5;
+  multiplo=2.5;
   intervalo = 440;
   imagActual = 0;
 }
@@ -55,14 +52,14 @@ void draw() {
   if (imagActual ==0) {  
     image (Imag1, 0, 0, 640, 480);
   fill(0);
-    text(Text1, pos+500-movimiento, 175);
+    text(Text1, 500-movimiento, 175);
   }
 
   //2 funciona
   else if (imagActual ==1) {
     image (Imag2, 0, 0, 640, 480);
     fill(0);
-    text(Text2, 0, 640-movimiento*multiplo1, 640, 480);
+    text(Text2, 0, 640-movimiento*multiplo, 650, 490);
   }
 
   //3 funciona
@@ -70,15 +67,15 @@ void draw() {
     image (Imag3, 0, 0, 640, 480);
 
     fill(255);
-    text(Text3, pos-1200+movimiento*multiplo1, 0, 640, 480);
+    text(Text3, -1400+movimiento*multiplo, 0, 640, 490);
   }
 
   //4 funciona
   else if (imagActual ==3) {
 
-    image (Imag4, 0, 0, 640, 480);
+    image (Imag4, 0, 0, 640, 490);
     fill(0);
-    text(Text4, 0, 1240-movimiento*2, 640, 480);
+    text(Text4, 0, 1400-movimiento*2, 640, 480);
   }
 
   //5 sin texto
@@ -86,21 +83,21 @@ void draw() {
 
     image (Imag5, 0, 0, 640, 480);
     fill(randomR, randomG, randomB);
-    text(Text5, 0, 0, 640, 480);
+    text(Text5, 0, 0, 640, 490);
   }
 
   //6 funciona mal
   else if (imagActual ==5) {
     image(Imag6, 0, 0, 640, 480);
     fill(randomR, randomG, randomB);
-    text(Text2, 0, 640-movimiento*multiplo1, 640, 480);
+    text(Text6, 0, 1340-movimiento*multiplo);
   }
 
   //7 funciona mal
   else if (imagActual ==6) {
     image (Imag7, 0, 0, 640, 480);
     fill(randomR, randomG, randomB);
-    text(Text7, pos+500-movimiento, 175);
+    text(Text7,600-movimiento, 175);
   }
 }
 void mouseClicked() {
@@ -112,7 +109,6 @@ void mouseClicked() {
       fill(255, 0, 0);
       rect(200, 200, 400, 400);
       movimiento = 0;
-      pos=0;
       imagActual=0;
     }
   }
